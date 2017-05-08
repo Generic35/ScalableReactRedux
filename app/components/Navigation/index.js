@@ -12,7 +12,7 @@ import styles from './styles.css';
 function Navigation({ topics }) {
   return (
     <div className={styles.navigation}>
-    this is the nav compoents
+     we have topics {topics.length} on the component
     </div>
   );
 }

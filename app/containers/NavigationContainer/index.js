@@ -14,6 +14,7 @@ export class NavigationContainer extends React.Component { // eslint-disable-lin
   render() {
     return (
       <div className={styles.navigationContainer}>
+
         <Navigation {...this.props} />
       </div>
     );
