@@ -30,7 +30,7 @@ export function requestTopicsFailed(message) {
   };
 }
 
-export function selectTopic(topic){
+export function selectTopic(topic) {
   return {
     type: SELECT_TOPIC,
     topic,
