@@ -3,6 +3,7 @@ import { REQUEST_TOPICS, SELECT_TOPIC } from './constants';
 import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { requestTopicsSucceeded, requestTopicsFailed } from './actions';
+import { push } from 'react-router-redux';
 
 export function* fetchTopicsSaga() {
   yield* takeLatest(REQUEST_TOPICS, fetchTopics);
@@ -23,7 +24,7 @@ export function fetchTopicsFromServer() {
 }
 
 function* pushTopic(action) {
-  console.log(action.topic);
+  yield put(push(`/topics/${action.topic.name}`));
 }
 
 function* selectTopicSaga() {
