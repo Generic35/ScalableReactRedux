@@ -35,6 +35,7 @@ const mapStateToProps = selectNavigationContainer();
 function mapDispatchToProps(dispatch) {
   return {
     requestTopics: () => dispatch(requestTopics()),
+    selectTopic: (topic) => { console.log('SELECTED TOPIC: ', topic); },
   };
 }
 
