@@ -4,9 +4,8 @@ import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { requestTopicsSucceeded, requestTopicsFailed } from './actions';
 
-export function fetchTopicsFromServer() {
-  return fetch('http://localhost:3000/api/topics')
-    .then(response => response.json());
+export function* fetchTopicsSaga() {
+  yield* takeLatest(REQUEST_TOPICS, fetchTopics);
 }
 
 function* fetchTopics() {
@@ -18,8 +17,9 @@ function* fetchTopics() {
   }
 }
 
-export function* fetchTopicsSaga() {
-  yield* takeLatest(REQUEST_TOPICS, fetchTopics);
+export function fetchTopicsFromServer() {
+  return fetch('http://localhost:3000/api/topics')
+    .then(response => response.json());
 }
 
 // All sagas to be loaded
