@@ -9,7 +9,7 @@ import React from 'react';
 import Link from '../Link';
 import styles from './styles.css';
 
-function LinkList({ links }) {
+function LinkList({ links, routeTopicName }) {
   const linkNodes = links.map(l => (
     <Link
       key={l.id}
@@ -20,11 +20,13 @@ function LinkList({ links }) {
   return (
     <div className={styles.linkList}>
       {linkNodes}
+      {routeTopicName}
     </div>
   );
 }
 
 LinkList.propTypes = {
+  routeTopicName: React.PropTypes.string.isRequired,
   links: React.PropTypes.arrayOf(React.PropTypes.shape({
     description: React.PropTypes.string.isRequired,
     url: React.PropTypes.string.isRequired,
