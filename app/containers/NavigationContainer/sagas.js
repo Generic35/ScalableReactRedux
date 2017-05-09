@@ -1,5 +1,5 @@
 // import { take, call, put, select } from 'redux-saga/effects';
-import { REQUEST_TOPICS } from './constants';
+import { REQUEST_TOPICS, SELECT_TOPIC } from './constants';
 import { takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import { requestTopicsSucceeded, requestTopicsFailed } from './actions';
@@ -22,7 +22,16 @@ export function fetchTopicsFromServer() {
     .then(response => response.json());
 }
 
+function* pushTopic(action) {
+  console.log(action.topic);
+}
+
+function* selectTopicSaga() {
+  yield* takeLatest(SELECT_TOPIC, pushTopic);
+}
+
 // All sagas to be loaded
 export default [
   fetchTopicsSaga,
+  selectTopicSaga,
 ];
