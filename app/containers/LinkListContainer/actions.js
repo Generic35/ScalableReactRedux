@@ -11,7 +11,6 @@ import {
 } from './constants';
 
 export function requestLinks(topicName) {
-  debugger
   return {
     type: REQUEST_LINKS,
     topicName,
