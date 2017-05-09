@@ -10,8 +10,12 @@ export function fetchTopicsFromServer() {
 }
 
 function* fetchTopics() {
-  const topics = yield call(fetchTopicsFromServer);
-  console.log('topics from the server !!!!', topics);
+  try {
+    const topics = yield call(fetchTopicsFromServer);
+    yield put(requestTopicsSucceeded(topics));
+  } catch (e) {
+    yield put(requestTopicsFailed(e.message));
+  }
 }
 
 export function* fetchTopicsSaga() {
