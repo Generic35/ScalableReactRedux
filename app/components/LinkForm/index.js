@@ -5,14 +5,55 @@
 */
 
 import React from 'react';
-
+import classNames from 'classnames';
 import styles from './styles.css';
 
 class LinkForm extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  state = {
+    errorText: '',
+  };
+
   render() {
     return (
-      <div className={styles.linkForm}>
-        This is the link form component
+      <div className={styles.overlay}>
+        <div className={styles.linkForm}>
+          <div
+            className={styles.heading}
+          >
+            Add a link
+          </div>
+
+          <input
+            className={classNames(styles.input, { [styles.inputError]: this.state })}
+            placeholder="URL"
+            ref={(f) => { this.urlField = f; }}
+            type="text"
+          />
+
+          <input
+            className={classNames(styles.input, { [styles.inputError]: this.state })}
+            placeholder="Description"
+            ref={(f) => { this.descriptionField = f; }}
+            type="text"
+          />
+
+          <div
+            className={styles.actionContainer}
+          >
+            <div
+              className={styles.button}
+              onClick={this.props.cancelLogin}
+            >
+              cancel
+            </div>
+            <div
+              className={styles.button}
+              onClick={this.login}
+            >
+              log in
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
