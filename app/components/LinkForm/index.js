@@ -12,6 +12,7 @@ class LinkForm extends React.Component { // eslint-disable-line react/prefer-sta
   render() {
     return (
       <div className={styles.linkForm}>
+        This is the link form component
       </div>
     );
   }
