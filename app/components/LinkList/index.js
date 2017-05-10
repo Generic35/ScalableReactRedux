@@ -19,8 +19,8 @@ function LinkList({ links, topicName }) {
 
   return (
     <div className={styles.linkList}>
+      <h1>{topicName}</h1>
       {linkNodes}
-      {topicName}
     </div>
   );
 }
