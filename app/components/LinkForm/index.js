@@ -7,6 +7,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
+import TextInput from '../TextInput';
 
 class LinkForm extends React.Component { // eslint-disable-line react/prefer-stateless-function
   state = {
@@ -23,19 +24,20 @@ class LinkForm extends React.Component { // eslint-disable-line react/prefer-sta
             Add a link
           </div>
 
-          <input
-            className={classNames(styles.input, { [styles.inputError]: this.state })}
+          <TextInput
             placeholder="URL"
-            ref={(f) => { this.urlField = f; }}
-            type="text"
+            className={styles.input}
+            errorText={this.state.urlError}
+            ref={(f) => (this.url = f)}
           />
 
-          <input
-            className={classNames(styles.input, { [styles.inputError]: this.state })}
+          <TextInput
             placeholder="Description"
-            ref={(f) => { this.descriptionField = f; }}
-            type="text"
+            className={styles.input}
+            errorText={this.state.descriptionError}
+            ref={(f) => (this.description = f)}
           />
+
 
           <div
             className={styles.actionContainer}
