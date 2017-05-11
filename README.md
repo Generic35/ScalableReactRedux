@@ -1,4 +1,4 @@
-#ScalableReactRedux
+# ScalableReactRedux
 
 Based on React Boilerplate, completed Pluralsight course Building Scalable React Apps.
 
